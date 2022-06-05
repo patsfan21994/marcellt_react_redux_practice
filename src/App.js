@@ -1,11 +1,24 @@
 import {Login} from './components/login/Login'
 
+
 import './App.css';
-import {Output} from "./components/login/LoginOutput";
+import {useSelector} from "react-redux";
+import {CreateAccount} from "./components/create-account/CreateAccount";
 
 function App() {
-    return <Login/>
-    return <Output/>
+    const isLoggedIn = useSelector(state => state.isLoggedIn)
+    if (!isLoggedIn){
+        return <>
+            <Login/>
+            <CreateAccount/>
+        </>
+
+    }
+    return <>
+        <h1>Hello World</h1>
+    </>
+
+
 
 }
 

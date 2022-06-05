@@ -2,11 +2,11 @@ import {ON_PASSWORD, ON_USERNAME, ON_LOGIN} from '../../modules/events'
 import {useDispatch, useSelector} from "react-redux";
 
 
-export function Login(){
-    const dispatch = useDispatch()
-    const username = useSelector(state => state.username)
-    const password = useSelector(state => state.password)
-    const credentials = useSelector(state => state.credentials)
+export function Login({_useDispatch = useDispatch, _useSelector = useSelector}){
+    const dispatch = _useDispatch()
+    const username = _useSelector(state => state.username)
+    const password = _useSelector(state => state.password)
+    // const credentials = _useSelector(state => state.credentials)
 
     // function onFormSubmit(event){
     //     event.preventDefault();
@@ -24,8 +24,8 @@ export function Login(){
         <form >
             <input onChange= {onUsernameChange} value={username} type={"text"} placeholder={"username"} />
             <input onChange= {onPasswordChange} value={password} type={"password"} placeholder={"password"}/>
-            <button onClick={() => dispatch({type: ON_LOGIN})} type={"submit"}>Login</button>
-            <header>Credentials: {credentials}</header>
+            <button onClick={() => dispatch({type: ON_LOGIN})} type={"button"}>Login</button>
+            {/*<header>Credentials: {credentials}</header>*/}
         </form>
 
 
